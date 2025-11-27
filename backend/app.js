@@ -7,7 +7,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "https://banking-system-shh7-765hoy9eg-shubhs-projects-7495b277.vercel.app",
+  origin: "shubh-bank.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
