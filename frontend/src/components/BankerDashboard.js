@@ -27,7 +27,7 @@ function BankerDashboard({ onLogout }) {
     try {
       const token = localStorage.getItem('token');
       const response = await axios.get(
-        `https://banking-system-2-4s3p.onrender.com/api/accounts/customers/${customerId}/transactions`,
+        `https://banking-system-3-wdos.onrender.com/api/accounts/customers/${customerId}/transactions`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       setSelectedCustomer(customerId);

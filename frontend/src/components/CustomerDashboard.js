@@ -14,7 +14,7 @@ function CustomerDashboard({ user, onLogout }) {
   const fetchTransactions = async () => {
     try {
       const token = localStorage.getItem('token');
-      const response = await axios.get('https://banking-system-2-4s3p.onrender.com/api/accounts/transactions', {
+      const response = await axios.get('https://banking-system-3-wdos.onrender.com/api/accounts/transactions', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTransactions(response.data.transactions);
