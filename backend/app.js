@@ -43,7 +43,16 @@ async function initializeDatabase() {
         );
       `);
 
-      // Insert sample data
+      console.log('Database tables created successfully.');
+    }
+
+    // Check if sample users exist, if not, insert them
+    const userCountQuery = 'SELECT COUNT(*) FROM users';
+    const userCountResult = await pool.query(userCountQuery);
+    const userCount = parseInt(userCountResult.rows[0].count);
+
+    if (userCount === 0) {
+      console.log('Inserting sample users...');
       await pool.query(`
         INSERT INTO Users (username, email, password, role) VALUES
         ('customer1', 'customer1@example.com', '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'customer'),
@@ -59,9 +68,9 @@ async function initializeDatabase() {
         ON CONFLICT DO NOTHING;
       `);
 
-      console.log('Database initialized successfully.');
+      console.log('Sample data inserted successfully.');
     } else {
-      console.log('Database already initialized.');
+      console.log('Sample users already exist.');
     }
   } catch (error) {
     console.error('Error initializing database:', error);
